@@ -1,0 +1,13 @@
+.buttons {
+    box-sizing: content-box;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+button {
+    color: white;
+    background-color: cornflowerblue;
+    margin: 0.5rem;
+}
