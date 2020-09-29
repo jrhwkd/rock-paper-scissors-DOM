@@ -12,6 +12,14 @@
             <button class='paperBtn'>Paper</button>
             <button class='scissorsBtn'>Scissors</button>
         </div>
+        <div class='results'>
+            <p class='cpuPickDisplay'></p>
+            <p class='resultDisplay'></p>
+            <p class='scoreDisplay'></p>
+        </div>
+        <div class='buttons'>
+            <button class='resetBtn'>Reset</button>
+        </div>
        <script>
            let playerScore = 0;
            let computerScore = 0;
@@ -42,23 +50,52 @@
                         return `Something went wrong!`;
                 }
             }
+
+            let resultDisplay = document.querySelector('.resultDisplay');
+            let cpuPickDisplay = document.querySelector('.cpuPickDisplay');
+            let scoreDisplay = document.querySelector('.scoreDisplay');
+
             const rockBtn = document.querySelector('.rockBtn');
             rockBtn.addEventListener('click', function(e) {
                 let cpuPick = computerPlay();
-                console.log(playRound('rock', cpuPick));
+                // show cpu pick
+                cpuPickDisplay.textContent=`Computer selected ${cpuPick}.`;
+                // show result of playRound
+                resultDisplay.textContent = playRound('rock', cpuPick);
+                scoreDisplay.textContent = `The score is: Computer - ${computerScore}, You - ${playerScore}`;
             });
 
             const paperBtn = document.querySelector('.paperBtn');
             paperBtn.addEventListener('click', function(e) {
                 let cpuPick = computerPlay();
-                console.log(playRound('paper', cpuPick));
+                // show cpu pick
+                cpuPickDisplay.textContent=`Computer selected ${cpuPick}.`;
+                // show result of playRound
+                resultDisplay.textContent = playRound('paper', cpuPick);
+                scoreDisplay.textContent = `The score is: Computer - ${computerScore}, You - ${playerScore}`;
             });
 
             const scissorsBtn = document.querySelector('.scissorsBtn');
             scissorsBtn.addEventListener('click', function(e) {
                 let cpuPick = computerPlay();
-                console.log(playRound('scissors', cpuPick));
+                // show cpu pick
+                cpuPickDisplay.textContent=`Computer selected ${cpuPick}.`;
+                // show result of playRound
+                resultDisplay.textContent = playRound('scissors', cpuPick);
+                scoreDisplay.textContent = `The score is: Computer - ${computerScore}, You - ${playerScore}`;
             });
+
+            const resetBtn = document.querySelector('.resetBtn');
+            resetBtn.addEventListener('click', function(e) {
+                // removes text from page
+                cpuPickDisplay.textContent='';
+                resultDisplay.textContent = '';
+                scoreDisplay.textContent = '';
+                // reset score
+                playerScore = 0;
+                computerScore = 0;
+            });
+            
        </script>
     </body>
 </html>
