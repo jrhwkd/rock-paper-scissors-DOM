@@ -7,6 +7,7 @@
         <link href='style.css' rel='stylesheet' type='text/css'>
     </head>
     <body>
+        <h1>Rock, Paper, Scissors...</h1>
         <div class='buttons'>
             <button class='rockBtn'>Rock</button>
             <button class='paperBtn'>Paper</button>
@@ -55,34 +56,34 @@
             let cpuPickDisplay = document.querySelector('.cpuPickDisplay');
             let scoreDisplay = document.querySelector('.scoreDisplay');
 
-            const rockBtn = document.querySelector('.rockBtn');
-            rockBtn.addEventListener('click', function(e) {
-                let cpuPick = computerPlay();
+            function runGameAndDisplay(playerPick, cpuPick) {
                 // show cpu pick
                 cpuPickDisplay.textContent=`Computer selected ${cpuPick}.`;
                 // show result of playRound
-                resultDisplay.textContent = playRound('rock', cpuPick);
+                resultDisplay.textContent = playRound(playerPick, cpuPick);
+                // show score
                 scoreDisplay.textContent = `The score is: Computer - ${computerScore}, You - ${playerScore}`;
+            }
+
+            const rockBtn = document.querySelector('.rockBtn');
+            rockBtn.addEventListener('click', function(e) {
+                let cpuPick = computerPlay();
+                let playerPick = 'rock';
+                runGameAndDisplay(playerPick, cpuPick);
             });
 
             const paperBtn = document.querySelector('.paperBtn');
             paperBtn.addEventListener('click', function(e) {
                 let cpuPick = computerPlay();
-                // show cpu pick
-                cpuPickDisplay.textContent=`Computer selected ${cpuPick}.`;
-                // show result of playRound
-                resultDisplay.textContent = playRound('paper', cpuPick);
-                scoreDisplay.textContent = `The score is: Computer - ${computerScore}, You - ${playerScore}`;
+                let playerPick = 'paper';
+                runGameAndDisplay(playerPick, cpuPick);
             });
 
             const scissorsBtn = document.querySelector('.scissorsBtn');
             scissorsBtn.addEventListener('click', function(e) {
                 let cpuPick = computerPlay();
-                // show cpu pick
-                cpuPickDisplay.textContent=`Computer selected ${cpuPick}.`;
-                // show result of playRound
-                resultDisplay.textContent = playRound('scissors', cpuPick);
-                scoreDisplay.textContent = `The score is: Computer - ${computerScore}, You - ${playerScore}`;
+                let playerPick = 'scissors';
+                runGameAndDisplay(playerPick, cpuPick);
             });
 
             const resetBtn = document.querySelector('.resetBtn');

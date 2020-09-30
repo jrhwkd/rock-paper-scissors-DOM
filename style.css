@@ -1,3 +1,14 @@
+html {
+    line-height: 1.5rem;
+    text-align: center;
+}
+
+h1 {
+    font-size: 20px;
+    font-weight: bolder;
+    margin-top: 2rem;
+}
+
 .buttons {
     box-sizing: content-box;
     width: 100%;
